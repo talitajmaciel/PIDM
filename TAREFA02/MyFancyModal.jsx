@@ -20,7 +20,7 @@ const MyFancyModal = ({ modalVisible, setModalVisible, IMCTruncate }) => {
                     <Text style={styles.modalText}>{IMCTruncate < 17 ? "Muito abaixo do peso" : IMCTruncate < 18.49 ? "Abaixo do Peso" : IMCTruncate < 24.99 ? "Peso normal"
                         : IMCTruncate < 29.99 ? "Acima do peso" : IMCTruncate < 34.99 ? "Obesidade I" : IMCTruncate < 39.99 ? "Obesidade II (Severa)" : "Obesidade III (Mórbida)"}</Text>
                     
-                    {/* dentro do componente do meu modal eu v9u ter um botão que ao clicar eu mudo o estado dele pra true e ele desaparece e vira false*/}
+                    {/* dentro do componente do meu modal eu v9u ter um botão que ao clicar eu mudo o estado dele pra not e ele desaparece e vira false*/}
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
                         onPress={() => setModalVisible(!modalVisible)}>

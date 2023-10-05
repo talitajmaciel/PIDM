@@ -1,11 +1,21 @@
+// meu arquivo "css" (não existe css nativo) para estilizar em js, preciso importar StyleSheet
 import { StyleSheet } from "react-native"
 
+// e fazer uma cont que retorna StyleSheet.create
+// essa constante pode ser feita assim em um arquivo separado ou solto no fim do código
 const MyStyle = StyleSheet.create({
+    // e vai criando as classes e chamando-as a const.classe
+    // dentro da propriedade style={MyStyle.container}
+    // numero sem aspas/palavras=string comn aspas
+
+    // container é a classe básica do seu layout
     container: {
+        // propriedades da classe:
         flex: 100,
         justifyContent: "center",
         alignItems: "center",
     },
+    // , para criar outra classe para estilizar
     header: {
         fontWeight: "bold",
         fontSize: 25,
@@ -45,4 +55,5 @@ const MyStyle = StyleSheet.create({
     },
 })
 
+// exporto ele para importar no arquivo onde eu quiser estlizar com essas classes
 export default MyStyle

@@ -1,8 +1,13 @@
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
+import { Modal, StyleSheet, Text, Pressable, View } from 'react-native';
 import MyStyle from "./MyStyle"
 
 //https://reactnative.dev/docs/modal
-const MyFancyModal = ({ modalVisible, setModalVisible, IMCTruncate }) => {
+// MyFancyModal é o componente que vai receber como props (desccontruído)
+// modalVisible a variavel que o torna visível
+// e setModalVisible a variavel que o torna visível ou não
+// e eu preciso da função pq ao apertar o botão se tornar invisível eu chamo a função
+// comunicação pai=>filho (ou virse-versa) é sempre via PROPS, ação vinda de um para o outro
+function MyFancyModal({ modalVisible, setModalVisible, IMCTruncate }) {
     return (
         <Modal
             animationType="slide"
@@ -10,7 +15,7 @@ const MyFancyModal = ({ modalVisible, setModalVisible, IMCTruncate }) => {
             visible={modalVisible}
             onRequestClose={() => {
                 setModalVisible(!modalVisible);
-            }}>
+            } }>
             <View style={MyStyle.container}>
                 <View style={styles.modalView}>
 
@@ -19,8 +24,8 @@ const MyFancyModal = ({ modalVisible, setModalVisible, IMCTruncate }) => {
                     <Text style={styles.modalText}>Você está:</Text>
                     <Text style={styles.modalText}>{IMCTruncate < 17 ? "Muito abaixo do peso" : IMCTruncate < 18.49 ? "Abaixo do Peso" : IMCTruncate < 24.99 ? "Peso normal"
                         : IMCTruncate < 29.99 ? "Acima do peso" : IMCTruncate < 34.99 ? "Obesidade I" : IMCTruncate < 39.99 ? "Obesidade II (Severa)" : "Obesidade III (Mórbida)"}</Text>
-                    
-                    {/* dentro do componente do meu modal eu v9u ter um botão que ao clicar eu mudo o estado dele pra not e ele desaparece e vira false*/}
+
+                    {/* dentro do componente do meu modal eu vou ter um botão que ao clicar eu mudo o estado dele pra not e ele desaparece e vira false*/}
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
                         onPress={() => setModalVisible(!modalVisible)}>
@@ -30,7 +35,7 @@ const MyFancyModal = ({ modalVisible, setModalVisible, IMCTruncate }) => {
             </View>
         </Modal>
     );
-};
+}
 
 const styles = StyleSheet.create({
     centeredView: {
